@@ -11,10 +11,9 @@ ENV HOME /root
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-#Change uid & gid to match Unraid
-RUN usermod -u 99 nobody && \
-    usermod -g 100 nobody
-    usermod -g 44 nobody
+#Change uid & gid to match tvheadend
+RUN usermod -u 99 hts && \
+    usermod -g 100 video
 
 RUN curl http://apt.tvheadend.org/repo.gpg.key | sudo apt-key add - && \
     apt-add-repository http://apt.tvheadend.org/stable && \
